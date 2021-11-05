@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>RawStallion</RootNamespace>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="ThermoFisher.CommonCore.Data">
+			<HintPath>C:\Program Files\Thermo\Proteome Discoverer 2.5\System\Release\ThermoFisher.CommonCore.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="ThermoFisher.CommonCore.RawFileReader">
+			<HintPath>C:\Program Files\Thermo\Proteome Discoverer 2.5\System\Release\ThermoFisher.CommonCore.RawFileReader.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+</Project>
