@@ -1,6 +1,6 @@
 # rawStallion
 
-rawStallion is a simple command-line application which reads scan data from a single Thermo Raw file (\*.raw) and writes two CSV files containing the following columns:
+rawStallion is a simple command-line application which reads scan data from a single Thermo Raw file (\*.raw) and writes two CSV files into the same directory containing the following columns:
 
 - `[rawfilename]-index.csv`
   - Scan number
