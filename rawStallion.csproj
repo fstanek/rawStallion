@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  <!-- nuget packages provided by https://github.com/thermofisherlsms/RawFileReader -->
     <PackageReference Include="ThermoFisher.CommonCore.RawFileReader" Version="5.0.0.71" />
   </ItemGroup>
 
