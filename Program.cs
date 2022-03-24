@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using ThermoFisher.CommonCore.Data;
 using ThermoFisher.CommonCore.Data.Business;
 using ThermoFisher.CommonCore.Data.FilterEnums;
@@ -19,6 +20,16 @@ namespace RawStallion
 
         static void Main(string[] args)
         {
+            PrintApplicationHeader();
+
+            if(!args.Any())
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ERROR: No file name given.");
+                Console.ResetColor();
+                return;
+            }
+
             Console.WriteLine($"Reading raw file...");
 
             var inputFileName = args.FirstOrDefault();
@@ -64,7 +75,7 @@ namespace RawStallion
                 ("Mass",
                     (s, e, c) => c.Mass),
                 ("Intensity",
-                    (s, e, c) => c.Intensity),
+                    (s, e, c) => c.Intensity.ToString("F2")),
                 ("Baseline",
                     (s, e, c) => c.Baseline.ToString("F2")),
                 ("Noise",
@@ -92,6 +103,27 @@ namespace RawStallion
             Console.WriteLine("Finished.");
         }
 
+        private static void PrintApplicationHeader()
+        {
+            var assembly = Assembly.GetExecutingAssembly().GetName();
+            var title = $"[{assembly.Name} v{assembly.Version.ToString(3)}]";
+            var separator = new string('-', title.Length);
+            Console.WriteLine(title);
+            Console.WriteLine(separator);
+
+            Console.WriteLine("Includes:");
+
+            var licenses = new string[]
+            {
+                "RawFileReader reading tool. Copyright (c) 2016 by Thermo Fisher Scientific, Inc. All rights reserved."
+            };
+
+            foreach (var license in licenses)
+                Console.WriteLine($" - {license}");
+
+            Console.WriteLine();
+        }
+
         private static string GetOutputFileName(string fileName, string suffix)
         {
             var outputFileName = Path.Combine(Path.GetDirectoryName(fileName), Path.GetFileNameWithoutExtension(fileName));
@@ -100,6 +132,7 @@ namespace RawStallion
 
         private static void WriteLine(StreamWriter writer, IEnumerable<object> values)
         {
+            // TODO store separator as constant
             writer.WriteLine(string.Join('\t', values));
         }
     }
