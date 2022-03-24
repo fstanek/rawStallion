@@ -1,23 +1,32 @@
-﻿* rawStallion
+# rawStallion
 
-rawStallion is a small commandline application. It takes a single Thermo Raw file (*.raw) and puts out two files:
-- a CSV file named `{RawFileName}-index.csv`
-- a CSV file named `{RawFileName}-noise.csv`
+rawStallion is a simple command-line application which reads scan data from a single Thermo Raw file (\*.raw) and writes two CSV files containing the following columns:
 
-** Installation
+- `[rawfilename]-index.csv`
+  - Scan number
+  - MS order
+  - Retention time
+  - Precursor m/z
+  - Precursor charge
+  - Isolation width
+  - Compensation voltage (CV)
 
-Go to releases and download the latest version.
+- `[rawfilename]-noise.csv`
+  - Scan number
+  - Mass
+  - Intensity
+  - Baseline
+  - Noise
+  - Signal-to-noise ratio
 
-** Usage
+## Installation
 
-Usage: rawStallion.exe RAWFILE [ScanNumber1] [ScanNumber2] ...
+Download the [latest release](https://github.com/fstanek/rawStallion/releases/latest/download/rawStallion.exe).
 
-By default rawStallion writes considers all scan numbers of the raw file.
+## Usage
 
-Writes the following fields to TSV (for each given scan number and its centroids, for all MS2 scans if no scan number is given):
-- ScanNumber
-- Mass
-- Intensity
-- Baseline
-- Noise
-- SignalToNoise
+`rawStallion.exe RAWFILE [ScanNumbers]`
+
+### Parameters
+- **`RAWFILE`** (mandatory) path to the raw file
+- **`[ScanNumbers]`** (optional) scan numbers separated by space. If omitted, all scans are read.
