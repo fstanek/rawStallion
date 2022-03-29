@@ -12,4 +12,10 @@
     <PackageReference Include="ThermoFisher.CommonCore.RawFileReader" Version="5.0.0.71" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="RawFileReaderLicense.doc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
