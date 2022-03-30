@@ -21,7 +21,7 @@ rawStallion is a simple command-line application which reads scan data from a si
 
 ## Installation
 
-- Download the [latest release](https://github.com/fstanek/rawStallion/releases/latest/download/rawStallion.exe)
+- Download the [latest release](https://github.com/fstanek/rawStallion/releases/latest/download/rawStallion.zip)
 - Unpack the archive
 - Run `rawStallion.exe`
 
