@@ -32,3 +32,8 @@ rawStallion is a simple command-line application which reads scan data from a si
 ### Parameters
 - **`RAWFILE`** (mandatory) path to the raw file
 - **`[ScanNumbers]`** (optional) scan numbers separated by space. If omitted, all scans are read.
+
+## 3rd Party Libraries used in this project
+- RawFileReader reading tool. Copyright (c) 2016 by Thermo Fisher Scientific, Inc. All rights reserved.
+  (provided at https://github.com/thermofisherlsms/RawFileReader)
+
